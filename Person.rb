@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This is the main class of the application
 class Person
   attr_accessor :id, :name, :age, :parent_permission
