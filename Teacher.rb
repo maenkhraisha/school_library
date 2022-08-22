@@ -1,7 +1,7 @@
 require './person'
 
 # This is the teacher class inherit from person
-class teacher < person
+class Teacher < person
   def initialize(specialization)
     super(name, parent_permission, age)
     @specialization = specialization
@@ -11,3 +11,4 @@ class teacher < person
     true
   end
 end
+

@@ -1,5 +1,5 @@
 # This is the main class of the application
-class person
+class Person
   attr_accessor :id, :name, :age, :parent_permission
 
   def initialize(age, name = 'Unknown', parent_permission = true)
