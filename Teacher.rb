@@ -1,4 +1,4 @@
-require './Person_Class.rb'
+require './Person_Class'
 
 # This is the teacher class inherit from person
 class Teacher < Person
