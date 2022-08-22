@@ -1,13 +1,15 @@
+# frozen_string_literal: true
 
-require './Person.rb'
+require './person'
 
+# This is the teacher class inherit from person
 class Student < Person
-    def initialize(classroom)
-        super(name = "Unknown" , parent_permission = true, age)
-        @classroom = classroom
-    end
+  def initialize(classroom)
+    super(name, parent_permission, age)
+    @classroom = classroom
+  end
 
-    def play_hooky
-        return "¯\(ツ)/¯"
-    end
+  def play_hooky
+    "¯\(ツ)/¯"
+  end
 end
