@@ -2,6 +2,7 @@ require './Person.rb'
 
 class Teacher < Person
     def initialize(specialization)
+        super(name = "Unknown" , parent_permission = true, age)
         @specialization = specialization
     end
 
@@ -9,3 +10,4 @@ class Teacher < Person
         return true
     end
 end
+
