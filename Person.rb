@@ -1,11 +1,11 @@
 class Person
-    attr_accessor :id,:name,:age,:parentPermission
+    attr_accessor :id,:name,:age,:parent_permission
 
-    def initialize(name = "Unknown" , parentPermission = true, age)
+    def initialize(name = "Unknown" , parent_permission = true, age)
         @id = Random.rand(1..1000)
         @name = name
         @age = age
-        @parentPermission = parentPermission
+        @parent_permission = parent_permission
     end
     
     def is_of_age?
@@ -25,5 +25,3 @@ class Person
     end
 end
 
-person = Person.new("maen",42,true)
-p person.name
