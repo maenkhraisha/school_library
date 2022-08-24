@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './nameable_class'
 
 # this class is the wrapper of the decorated classes
