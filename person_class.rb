@@ -1,11 +1,12 @@
-require './nameable_class'
+# frozen_string_literal: true
 
+require './nameable_class'
 
 # This is the main class of the application
 class Person < Nameable
   attr_accessor :name, :age, :parent_permission
 
-  def initialize(age, name = 'Unknown', parent_permission: true)    
+  def initialize(age, name = 'Unknown', parent_permission: true)
     @id = Random.rand(1..1000)
     @name = name
     @age = age
@@ -25,7 +26,6 @@ class Person < Nameable
     @age > 18 || @parent_permission == true
   end
 end
-
 
 # person = Person.new(22, 'maximilianus')
 # person.correct_name
