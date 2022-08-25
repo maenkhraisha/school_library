@@ -1,4 +1,4 @@
-require './nameable_class'
+require './nameable'
 
 # this class is the wrapper of the decorated classes
 class Decorator < Nameable
