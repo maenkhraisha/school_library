@@ -2,9 +2,9 @@ require './person'
 
 # This is the teacher class inherit from person
 class Student < Person
-  attr_reader :classroom
+  attr_reader :classroom, :parent_permission
 
-  def initialize(classroom, age, name = "unknown", parent_permission: true)
+  def initialize(classroom, age, name = 'unknown', parent_permission: true)
     super(age, name)
     @classroom = classroom
   end
