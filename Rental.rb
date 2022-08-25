@@ -1,5 +1,3 @@
-require 'date'
-
 # this class make the relashionship between person and books
 class Rental
   attr_reader :book, :person
