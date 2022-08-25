@@ -11,6 +11,11 @@ class Person < Nameable
     @parent_permission = parent_permission
     super()
   end
+  
+  def add_rental(rent)
+    @rentals.push(rent)
+    rent.book = self
+  end
 
   def correct_name
     @name

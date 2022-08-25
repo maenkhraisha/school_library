@@ -1,4 +1,4 @@
-require './Person_Class'
+require './person_class'
 
 # This is the teacher class inherit from person
 class Teacher < Person
