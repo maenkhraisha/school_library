@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './nameable_class'
 
 # This is the main class of the application
@@ -11,7 +13,7 @@ class Person < Nameable
     @parent_permission = parent_permission
     super()
   end
-  
+
   def add_rental(rent)
     @rentals.push(rent)
     rent.book = self

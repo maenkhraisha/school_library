@@ -1,27 +1,29 @@
-require './classes/person'
-require './classes/book'
-require './classes/rental'
-require './classes/student'
-require './classes/teacher'
-require './classes/classroom'
-require './decorators/capitalize_decorator'
-require './decorators/trimmer_decorator'
+# frozen_string_literal: true
+
+require './person'
+require './book'
+require './rental'
+require './student'
+require './teacher'
+require './classroom'
+require './capitalize_decorator'
+require './trimmer_decorator'
 
 puts "\nRelationships Students & Classroom:"
 
-rito = Student.new('Class 1', 18, 'Rito')
-queen = Student.new('Class 1', 21, 'Queen')
-sayantani = Student.new('Class 2', 22, 'Sayantani')
+maen = Student.new('Class 1', 18, 'Maen')
+jamal = Student.new('Class 1', 21, 'jamal')
+mohammad = Student.new('Class 2', 22, 'mohammad')
 
 class1 = Classroom.new('Class 1')
 class2 = Classroom.new('Class 2')
 
 puts "\n\n#{class1.label} details:"
 puts "\nInitial #{class1.label} students count: #{class1.students.count}"
-class1.add_student(rito)
-class1.add_student(queen)
-puts "\nAfter #{rito.name} and #{queen.name} adding Students - count: #{class1.students.count}"
-puts "\nRito is in class: #{rito.classroom.label}"
+class1.add_student(maen)
+class1.add_student(jamal)
+puts "\nAfter #{maen.name} and #{jamal.name} adding Students - count: #{class1.students.count}"
+puts "\nRito is in class: #{maen.classroom.label}"
 puts "\n#{class1.label} last student added is: #{class1.students.last.name}"
 puts "\n#{class1.students.last.name} age is: #{class1.students.last.age}"
 puts "\nList of students in #{class1.label}"
@@ -30,16 +32,16 @@ p student_list
 
 puts "\n\n#{class2.label} details:"
 puts "\nInitial #{class2.label} students count: #{class2.students.count}"
-class2.add_student(sayantani)
-puts "\nAfter adding #{sayantani.name} Students - count: #{class2.students.count}"
-puts "\n#{sayantani.name} is in - #{sayantani.classroom.label}"
+class2.add_student(mohammad)
+puts "\nAfter adding #{mohammad.name} Students - count: #{class2.students.count}"
+puts "\n#{mohammad.name} is in - #{mohammad.classroom.label}"
 puts "\nList of students in #{class2.label}"
 student_list = class2.students.map(&:name)
 p student_list
 
 puts "\n\nRelationships Person, Book & Rentals:"
-person1 = Person.new(18, 'Ritobroto', parent_permission: false)
-person2 = Person.new(27, 'Queeen', parent_permission: true)
+person1 = Person.new(18, 'Maen', parent_permission: false)
+person2 = Person.new(27, 'Jamal', parent_permission: true)
 
 book1 = Book.new('Nuclear Family', 'Joseph Han')
 book2 = Book.new('The Angel of Rome', 'Jess Walter')
