@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-require './decorator_class'
+require './decorator'
 
 # this class make sure that return the name trimmed
 class TrimmerDecorator < Decorator

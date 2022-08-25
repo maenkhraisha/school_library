@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './person'
 require './book'
 require './rental'
@@ -23,7 +21,7 @@ puts "\nInitial #{class1.label} students count: #{class1.students.count}"
 class1.add_student(maen)
 class1.add_student(jamal)
 puts "\nAfter #{maen.name} and #{jamal.name} adding Students - count: #{class1.students.count}"
-puts "\nRito is in class: #{maen.classroom.label}"
+puts "\nMaen is in class: #{maen.classroom.label}"
 puts "\n#{class1.label} last student added is: #{class1.students.last.name}"
 puts "\n#{class1.students.last.name} age is: #{class1.students.last.age}"
 puts "\nList of students in #{class1.label}"
@@ -58,14 +56,15 @@ puts "\n#{person2.name} has rented total books = #{person2.rentals.count}"
 puts "\n#{person1.name} rented book list:"
 rental_details = ''
 person1.rentals.each_with_index do |rental, i|
-  rental_details += "\n#{i + 1} => #{rental.full_date}: #{rental.book.title} by #{rental.book.author}"
+  rental_details += "\n#{i + 1} => #{rental.date}: #{rental.book.title}
+  by #{rental.book.author}"
 end
 puts rental_details
 
 rental_details = ''
 puts "\n#{person2.name} rented book list:"
 person2.rentals.each_with_index do |rental, i|
-  rental_details += "\n#{i + 1} => #{rental.full_date}: #{rental.book.title} by #{rental.book.author}"
+  rental_details += "\n#{i + 1} => #{rental.date}: #{rental.book.title} by #{rental.book.author}"
 end
 puts rental_details
 

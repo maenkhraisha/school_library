@@ -1,13 +1,11 @@
-# frozen_string_literal: true
-
-require './person_class'
+require './person'
 
 # This is the teacher class inherit from person
 class Student < Person
   attr_reader :classroom
 
-  def initialize(age, classroom, name, parent_permission)
-    super(name, parent_permission, age)
+  def initialize(classroom, age, name = "unknown", parent_permission: true)
+    super(age, name)
     @classroom = classroom
   end
 
