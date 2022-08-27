@@ -10,7 +10,7 @@ def options
   puts '6 - List all rentals for a given person id'
   puts '7 - Exit'
 end
-
+# rubocop:disable ClassLength
 def main
   user_input = nil
   app = App.new
@@ -37,7 +37,6 @@ def main
     else
       puts 'Wrong input'
     end
-
   end
 end
 
