@@ -39,5 +39,5 @@ def main
     end
   end
 end
-
+# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
 main
