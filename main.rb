@@ -10,7 +10,7 @@ def options
   puts '6 - List all rentals for a given person id'
   puts '7 - Exit'
 end
-# rubocop:disable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/CyclomaticComplexity
 def main
   user_input = nil
   app = App.new
@@ -39,5 +39,5 @@ def main
     end
   end
 end
-# rubocop:enable Metrics/PerceivedComplexity,Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/CyclomaticComplexity
 main
