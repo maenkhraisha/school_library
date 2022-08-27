@@ -54,14 +54,14 @@ class App
     text
   end
 
-  def get_book
+  def books_list
     puts list_books
     no = gets.chomp
     no = no.to_i
     @books[no - 1]
   end
 
-  def get_person
+  def person_list
     puts list_people
     no = gets.chomp
     no = no.to_i
@@ -72,9 +72,9 @@ class App
     print 'Enter the date :'
     date = gets.chomp
     print 'Enter the person :'
-    person = get_person
+    person = person_list
     print 'Enter the book :'
-    book = get_book
+    book = books_list
 
     @rentals << Rental.new(date, person, book)
     puts 'Rental Created Successfully'

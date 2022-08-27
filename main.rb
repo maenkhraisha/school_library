@@ -12,14 +12,14 @@ def options
 end
 
 def main
-  userInput = nil
+  user_input = nil
   app = App.new
 
-  while userInput != 7
+  while user_input != 7
     options
-    userInput = gets.chomp
+    user_input = gets.chomp
 
-    case userInput
+    case user_input
     when '1'
       puts app.list_books
     when '2'
