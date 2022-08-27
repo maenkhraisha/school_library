@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './decorator'
 
 # this class make sure that return the name capitilize
