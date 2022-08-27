@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This class for book
 class Book
   attr_reader :rentals

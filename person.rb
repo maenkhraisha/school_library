@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './nameable'
 
 # This is the main class of the application

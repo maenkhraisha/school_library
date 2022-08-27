@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # this class make the relashionship between person and books
 class Rental
   attr_accessor :date, :book, :person

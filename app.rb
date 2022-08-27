@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './person'
 require './book_class'
 require './rental_class'
