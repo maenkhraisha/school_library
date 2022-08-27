@@ -49,7 +49,7 @@ class App
 
     text = ''
     @people.each.with_index(1) do |people, i|
-      text += "\n#{i}) Name: \"#{people.name}\" Age: #{people.age}"
+      text += "\n#{i}) Name: \"#{people.name}\" ID: #{people.id} Age: #{people.age}"
     end
     text
   end
@@ -80,12 +80,14 @@ class App
     puts 'Rental Created Successfully'
   end
 
-  def list_rental_by_person
+  def list_rental_by_person(id)
     return 'No person added to the library' unless @rentals.any?
 
     text = ''
     @rentals.each.with_index(1) do |rental, i|
-      text += "\n#{i}) Date: \"#{rental.date}\" Person: #{rental.person.name}\" Book: #{rental.book.title}"
+      if rental.person.id.to_i == id.to_i
+        text += "\n#{i}) Date: \"#{rental.date}\" Person: #{rental.person.name}\" Book: #{rental.book.title}"
+      end
     end
     text
   end

@@ -32,7 +32,9 @@ def main
     when '5'
       app.create_rental
     when '6'
-      puts app.list_rental_by_person
+      puts "Enter person ID to show his rental :"
+      id = gets.chomp
+      puts app.list_rental_by_person(id)
     when '7'
       return
     else
