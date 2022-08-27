@@ -11,6 +11,7 @@ def options
   puts '7 - Exit'
 end
 # rubocop:disable Metrics/CyclomaticComplexity
+
 def main
   user_input = nil
   app = App.new
