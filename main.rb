@@ -1,23 +1,16 @@
 require './app'
+require './options'
 
-def options
-  puts "\n\nselect option by entering a number:"
-  puts '1 - List all books'
-  puts '2 - List all people'
-  puts '3 - Create a book'
-  puts '4 - Create a person'
-  puts '5 - Create a rental'
-  puts '6 - List all rentals for a given person id'
-  puts '7 - Exit'
-end
 # rubocop:disable Metrics/CyclomaticComplexity
 
 def main
   user_input = nil
   app = App.new
 
+  option = Options.new
+
   while user_input != 7
-    options
+    option.print_options
     user_input = gets.chomp
 
     case user_input
