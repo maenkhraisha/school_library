@@ -39,7 +39,7 @@ class App
     print 'Enter the person name :'
     name = gets.chomp
     print 'Enter the person age :'
-    age = gets.chomp  
+    age = gets.chomp
     print 'Enter the teacher specialization :'
     specialization = gets.chomp
 
@@ -51,7 +51,7 @@ class App
     print 'Enter the person name :'
     name = gets.chomp
     print 'Enter the person age :'
-    age = gets.chomp  
+    age = gets.chomp
     print 'Enter classroom name :'
     classroom = gets.chomp
     print 'Do you have parent permission? (yes/no) :'
@@ -110,7 +110,7 @@ class App
     text
   end
 
-  def save_data  
+  def save_data
     save_books
     save_people
     save_rental
@@ -127,35 +127,34 @@ class App
       if !(i == @books.length - 1)
         File.write("./json_files/books.json", ",\n", mode: "a")
       end
-    end    
+    end
     File.write("./json_files/books.json", "\n]", mode: "a")
   end
 
   def save_people
     File.write("./json_files/people.json", "")
     File.write("./json_files/people.json", "[\n", mode: "a")
-    @people.each_with_index do |person, i|         
+    @people.each_with_index do |person, i|
       if person.instance_variable_defined?("@classroom")
         b = { id: person.id,
-              age: person.age, 
+              age: person.age,
               name: person.name,
-              classroom: person.classroom, 
+              classroom: person.classroom,
               parent_permission: person.parent_permission }
       else
         b = { id: person.id,
-              age: person.age, 
-              name: person.name, 
+              age: person.age,
+              name: person.name,
               specialization: person.specialization }
       end
 
-     
       json = JSON.generate(b)
       File.write("./json_files/people.json", json, mode: "a")
       File.write("./json_files/people.json", "\n", mode: "a")
       if !(i == @people.length - 1)
         File.write("./json_files/people.json", ",\n", mode: "a")
       end
-    end    
+    end
     File.write("./json_files/people.json", "]", mode: "a")
   end
 
@@ -163,7 +162,7 @@ class App
     File.write("./json_files/rentals.json", "")
     File.write("./json_files/rentals.json", "[", mode: "a")
     @rentals.each_with_index do |rental, i|
-      b = { date: rental.date, person: rental.person, book: rental.book}
+      b = { date: rental.date, person: rental.person, book: rental.book }
       json = JSON.generate(b)
       File.write("./json_files/rentals.json", json, mode: "a")
       File.write("./json_files/rentals.json", "\n", mode: "a")

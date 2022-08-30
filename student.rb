@@ -19,7 +19,7 @@ class Student < Person
   def play_hooky
     "¯\(ツ)/¯"
   end
-  
+
   def can_use_services?
     @age > 18 || @parent_permission == true
   end
