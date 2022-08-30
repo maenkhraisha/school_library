@@ -124,7 +124,7 @@ class App
       json = JSON.generate(b)
       File.write('./json_files/books.json', json, mode: 'a')
       File.write('./json_files/books.json', '\n', mode: 'a')
-      if i != (@books.length - 1)
+      if i != @books.length - 1
         File.write('./json_files/books.json', ',\n', mode: 'a')
       end
     end
@@ -135,14 +135,14 @@ class App
     File.write('./json_files/people.json', '')
     File.write('./json_files/people.json', '[\n', mode: 'a')
     @people.each_with_index do |person, i|
-      if person.instance_variable_defined?('@classroom')
-        b = { id: person.id,
+      b = if person.instance_variable_defined?('@classroom')
+        { id: person.id,
               age: person.age,
               name: person.name,
               classroom: person.classroom,
               parent_permission: person.parent_permission }
       else
-        b = { id: person.id,
+        { id: person.id,
               age: person.age,
               name: person.name,
               specialization: person.specialization }
@@ -151,7 +151,7 @@ class App
       json = JSON.generate(b)
       File.write('./json_files/people.json', json, mode: 'a')
       File.write('./json_files/people.json', '\n', mode: 'a')
-      if i != (@people.length - 1)
+      if i != @people.length - 1
         File.write('./json_files/people.json', ',\n', mode: 'a')
       end
     end
@@ -166,7 +166,7 @@ class App
       json = JSON.generate(b)
       File.write('./json_files/rentals.json', json, mode: 'a')
       File.write('./json_files/rentals.json', '\n', mode: 'a')
-      if i != (@rentals.length - 1)
+      if i != @rentals.length - 1
         File.write('./json_files/rentals.json', ',', mode: 'a')
       end
     end
