@@ -124,7 +124,8 @@ class App
       json = JSON.generate(b)
       File.write('./json_files/books.json', json, mode: 'a')
       File.write('./json_files/books.json', '\n', mode: 'a')
-      if i != @books.length - 1
+      l = @people.length - 1
+      if i != l
         File.write('./json_files/books.json', ',\n', mode: 'a')
       end
     end
@@ -151,7 +152,8 @@ class App
       json = JSON.generate(b)
       File.write('./json_files/people.json', json, mode: 'a')
       File.write('./json_files/people.json', '\n', mode: 'a')
-      if i != @people.length - 1
+      l = @people.length - 1
+      if i != l
         File.write('./json_files/people.json', ',\n', mode: 'a')
       end
     end
@@ -166,7 +168,8 @@ class App
       json = JSON.generate(b)
       File.write('./json_files/rentals.json', json, mode: 'a')
       File.write('./json_files/rentals.json', '\n', mode: 'a')
-      if i != @rentals.length - 1
+      l = @people.length - 1
+      if i != l
         File.write('./json_files/rentals.json', ',', mode: 'a')
       end
     end
