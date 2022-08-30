@@ -55,11 +55,7 @@ class App
     classroom = gets.chomp
     print 'Do you have parent permission? (yes/no) :'
     parent_permission = gets.chomp
-    parent_permission = if parent_permission == 'yes'
-                          true
-                        else
-                          false
-                        end
+    parent_permission = parent_permission == 'yes'
 
     @people << Student.new(classroom, age, name, parent_permission)
     puts 'Student Created Successfully'
