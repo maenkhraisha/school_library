@@ -136,17 +136,17 @@ class App
     File.write('./json_files/people.json', '[\n', mode: 'a')
     @people.each_with_index do |person, i|
       b = if person.instance_variable_defined?('@classroom')
-        { id: person.id,
+            { id: person.id,
               age: person.age,
               name: person.name,
               classroom: person.classroom,
               parent_permission: person.parent_permission }
-      else
-        { id: person.id,
+          else
+            { id: person.id,
               age: person.age,
               name: person.name,
               specialization: person.specialization }
-      end
+          end
 
       json = JSON.generate(b)
       File.write('./json_files/people.json', json, mode: 'a')
