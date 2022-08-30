@@ -1,9 +1,9 @@
 require './person'
-require './book'
-require './rental'
+require './book_class'
+require './rental_class'
 require './student'
 require './teacher'
-require './classroom'
+require './classroom_class'
 require './capitalize_decorator'
 require './trimmer_decorator'
 
