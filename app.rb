@@ -117,23 +117,23 @@ class App
   end
 
   def save_books
-    File.write("./json_files/books.json", "")
-    File.write("./json_files/books.json", '[\n', mode: 'a')
+    File.write('./json_files/books.json', "")
+    File.write('./json_files/books.json', '[\n', mode: 'a')
     @books.each_with_index do |book, i|
       b = { title: book.title, author: book.author }
       json = JSON.generate(b)
-      File.write("./json_files/books.json", json, mode: 'a')
-      File.write("./json_files/books.json", '\n', mode: 'a')
+      File.write('./json_files/books.json', json, mode: 'a')
+      File.write('./json_files/books.json', '\n', mode: 'a')
       if !(i == @books.length - 1)
-        File.write("./json_files/books.json", ',\n', mode: 'a')
+        File.write('./json_files/books.json', ',\n', mode: 'a')
       end
     end
-    File.write("./json_files/books.json", '\n', mode: 'a')
+    File.write('./json_files/books.json', '\n', mode: 'a')
   end
 
   def save_people
-    File.write("./json_files/people.json", "")
-    File.write("./json_files/people.json", '[\n', mode: 'a')
+    File.write('./json_files/people.json', "")
+    File.write('./json_files/people.json', '[\n', mode: 'a')
     @people.each_with_index do |person, i|
       if person.instance_variable_defined?("@classroom")
         b = { id: person.id,
@@ -149,28 +149,28 @@ class App
       end
 
       json = JSON.generate(b)
-      File.write("./json_files/people.json", json, mode: 'a')
-      File.write("./json_files/people.json", '\n', mode: 'a')
+      File.write('./json_files/people.json', json, mode: 'a')
+      File.write('./json_files/people.json', '\n', mode: 'a')
       if !(i == @people.length - 1)
-        File.write("./json_files/people.json", ',\n', mode: 'a')
+        File.write('./json_files/people.json', ',\n', mode: 'a')
       end
     end
-    File.write("./json_files/people.json", ']', mode: 'a')
+    File.write('./json_files/people.json', ']', mode: 'a')
   end
 
   def save_rental
-    File.write("./json_files/rentals.json", "")
-    File.write("./json_files/rentals.json", '[', mode: 'a')
+    File.write('./json_files/rentals.json', "")
+    File.write('./json_files/rentals.json', '[', mode: 'a')
     @rentals.each_with_index do |rental, i|
       b = { date: rental.date, person: rental.person, book: rental.book }
       json = JSON.generate(b)
-      File.write("./json_files/rentals.json", json, mode: 'a')
-      File.write("./json_files/rentals.json", '\n', mode: 'a')
+      File.write('./json_files/rentals.json', json, mode: 'a')
+      File.write('./json_files/rentals.json', '\n', mode: 'a')
       if !(i == @rentals.length - 1)
-        File.write("./json_files/rentals.json", ',', mode: 'a')
+        File.write('./json_files/rentals.json', ',', mode: 'a')
       end
     end
-    File.write("./json_files/rentals.json", '\n', mode: 'a')
-    File.write("./json_files/rentals.json", ']', mode: 'a')
+    File.write('./json_files/rentals.json', '\n', mode: 'a')
+    File.write('./json_files/rentals.json', ']', mode: 'a')
   end
 end
