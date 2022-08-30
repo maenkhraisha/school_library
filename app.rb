@@ -134,7 +134,8 @@ class App
 
   def save_people
     File.write('./json_files/people.json', '')
-    File.write('./json_files/people.json', '[\n', mode: 'a')
+    File.write('./json_files/people.json', '[', mode: 'a')
+    File.write('./json_files/people.json', "\n", mode: 'a')
     @people.each_with_index do |person, i|
       b = if person.instance_variable_defined?('@classroom')
             { id: person.id,
@@ -151,12 +152,9 @@ class App
 
       json = JSON.generate(b)
       File.write('./json_files/people.json', json, mode: 'a')
-      File.write('./json_files/people.json', '\n', mode: 'a')
-      l = @people.length - 1
-      if i != l
-        File.write('./json_files/people.json', ',\n', mode: 'a')
-      end
-    end
+      File.write('./json_files/people.json', "\n", mode: 'a')
+      i != @people.length - 1 ? File.write('./json_files/people.json', ',\n', mode: 'a') : ''
+    end  
     File.write('./json_files/people.json', ']', mode: 'a')
   end
 
