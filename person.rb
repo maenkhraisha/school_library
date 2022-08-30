@@ -2,14 +2,13 @@ require './nameable'
 
 # This is the main class of the application
 class Person < Nameable
-  attr_reader :id, :parent_permission, :rentals
+  attr_reader :id, :rentals
   attr_accessor :name, :age
 
-  def initialize(age, name, parent_permission)
+  def initialize(age, name)
     @id = Random.rand(1..1000)
     @name = name
     @age = age
-    @parent_permission = parent_permission
     @rentals = []
     super()
   end
@@ -24,9 +23,5 @@ class Person < Nameable
 
   def of_age?
     @age > 18
-  end
-
-  def can_use_services?
-    @age > 18 || @parent_permission == true
   end
 end

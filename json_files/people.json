@@ -1,3 +1,5 @@
-[{"id":922,"age":"werwre","name":"swrwer","parent_permission":true}
-
+[
+{"id":369,"age":"maen","name":"43","specialization":"computer"}
+,
+{"id":532,"age":"maen","name":"43","classroom":"class a","parent_permission":true}
 ]
