@@ -1,3 +1,4 @@
+require 'json'
 require './person'
 require './book_class'
 require './rental_class'
@@ -108,4 +109,31 @@ class App
     end
     text
   end
+
+  def save_data    
+    save_books
+  end
+
+  def save_books
+
+    File.write("./json_files/books.json", "")
+    File.write("./json_files/books.json", "[",mode: "a")
+    @books.each_with_index do |book,i|  
+      b = {title: book.title, author: book.author}      
+      json = JSON.generate(b)
+      File.write("./json_files/books.json", json,mode: "a")
+      File.write("./json_files/books.json", "\n",mode: "a")
+      if !(i == @books.length - 1 )
+        File.write("./json_files/books.json", ",",mode: "a")
+      end
+    end
+    File.write("./json_files/books.json", "\n",mode: "a")
+    File.write("./json_files/books.json", "]",mode: "a")
+
+   
+  end
+
+
+  
+ 
 end

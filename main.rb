@@ -36,6 +36,7 @@ def main
       id = gets.chomp
       puts app.list_rental_by_person(id)
     when '7'
+      app.save_data
       return
     else
       puts 'Wrong input'
