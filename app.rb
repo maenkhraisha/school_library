@@ -123,15 +123,15 @@ class App
       b = { title: book.title, author: book.author }
       json = JSON.generate(b)
       File.write('./json_files/books.json', json, mode: 'a')
-      File.write('./json_files/books.json', "\n", mode: 'a')      
-      i == @people.length - 1 ? '' : File.write('./json_files/books.json', ",\n", mode: 'a')      
+      File.write('./json_files/books.json', "\n", mode: 'a')
+      i == @people.length - 1 ? '' : File.write('./json_files/books.json', ",\n", mode: 'a')
     end
     File.write('./json_files/books.json', "\n", mode: 'a')
   end
 
   def save_people
     File.write('./json_files/people.json', '')
-    File.write('./json_files/people.json', "[\n", mode: 'a')    
+    File.write('./json_files/people.json', "[\n", mode: 'a')
     @people.each_with_index do |person, i|
       b = if person.instance_variable_defined?('@classroom')
             { id: person.id,
@@ -149,8 +149,8 @@ class App
       json = JSON.generate(b)
       File.write('./json_files/people.json', json, mode: 'a')
       File.write('./json_files/people.json', "\n", mode: 'a')
-      i == @people.length - 1 ? '' : File.write('./json_files/people.json', ",\n", mode: 'a') 
-    end  
+      i == @people.length - 1 ? '' : File.write('./json_files/people.json', ",\n", mode: 'a')
+    end
     File.write('./json_files/people.json', ']', mode: 'a')
   end
 
@@ -161,9 +161,9 @@ class App
       b = { date: rental.date, person: rental.person, book: rental.book }
       json = JSON.generate(b)
       File.write('./json_files/rentals.json', json, mode: 'a')
-      File.write('./json_files/rentals.json', "\n", mode: 'a')      
-      i == @people.length - 1 ? '' : File.write('./json_files/rentals.json', ",\n", mode: 'a')      
-    end    
+      File.write('./json_files/rentals.json', "\n", mode: 'a')
+      i == @people.length - 1 ? '' : File.write('./json_files/rentals.json', ",\n", mode: 'a')
+    end
     File.write('./json_files/rentals.json', "\n]", mode: 'a')
   end
 end
