@@ -34,14 +34,31 @@ class App
     text
   end
 
-  def create_person
+  def create_teacher
     print 'Enter the person name :'
     name = gets.chomp
     print 'Enter the person age :'
     age = gets.chomp
+    print 'Enter the teacher specialization :'
+    specialization = gets.chomp
 
-    @people << Person.new(age, name)
-    puts 'Person Created Successfully'
+    @people << Teacher.new(age, specialization, name)
+    puts 'Teacher Created Successfully'
+  end
+
+  def create_student
+    print 'Enter the person name :'
+    name = gets.chomp
+    print 'Enter the person age :'
+    age = gets.chomp
+    print 'Enter classroom name :'
+    classroom = gets.chomp
+    print 'Do you have parent permission? (yes/no) :'
+    parent_permission = gets.chomp
+    parent_permission = parent_permission == 'yes' ? true : false
+
+    @people << Student.new(classroom, age, name, parent_permission)
+    puts 'Student Created Successfully'
   end
 
   def list_people
