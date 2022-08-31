@@ -32,7 +32,6 @@ module FileOperation
               name: person.name,
               specialization: person.specialization }
           end
-
       json = JSON.generate(b)
       File.write('./json_files/people.json', json, mode: 'a')
       File.write('./json_files/people.json', "\n", mode: 'a')
@@ -57,12 +56,9 @@ module FileOperation
   def load_books_from_files
     books = []
     return unless File.exist?('./json_files/books.json')
-
     file_data = File.read('./json_files/books.json').split
-
     file_data.each do |item|
       next unless item[0] == '{'
-
       data = JSON.parse(item)
       id = data['id']
       title = data['title']
@@ -75,12 +71,9 @@ module FileOperation
   def load_people_from_files
     people = []
     return unless File.exist?('./json_files/people.json')
-
     file_data = File.read('./json_files/people.json').split
-
     file_data.each do |item|
       next unless item[0] == '{'
-
       data = JSON.parse(item)
       id = data['id']
       name = data['name']
@@ -101,17 +94,13 @@ module FileOperation
   def load_rentals_from_files(people, books)
     rentals = []
     return unless File.exist?('./json_files/rentals.json')
-
     file_data = File.read('./json_files/rentals.json').split
-
     file_data.each do |item|
       next unless item[0] == '{'
-
       data = JSON.parse(item)
       date = data['date']
       person = get_person_by_id(data['person'], people)
       book = get_book_by_id(data['book'], books)
-
       rentals << Rental.new(date, person, book)
     end
     rentals
