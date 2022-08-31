@@ -8,8 +8,8 @@ require './capitalize_decorator'
 require './file_operation'
 
 class App
-  extend FileOperation
   def initialize
+    extend FileOperation
     puts 'School Library Application'
     @people = load_people_from_files
     @books = load_books_from_files
@@ -112,8 +112,8 @@ class App
   end
 
   def save_data
-    FileOperation.save_books(@books)
-    FileOperation.save_people(@people)
-    FileOperation.save_rental(@rentals)
+    save_books(@books)
+    save_people(@people)
+    save_rental(@rentals)
   end
 end
