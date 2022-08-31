@@ -4,11 +4,11 @@ class Book
   attr_accessor :title, :author
 
   def initialize(title, author, id = 0)
-    if id == 0
+    if id.zero?
       @id = Random.rand(1..1000)
     else
       @id = id
-    end    
+    end
     @title = title
     @author = author
     @rentals = []

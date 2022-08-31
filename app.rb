@@ -123,7 +123,7 @@ class App
     File.write('./json_files/books.json', '')
     File.write('./json_files/books.json', "[\n", mode: 'a')
     @books.each_with_index do |book, i|
-      b = { title: book.title, author: book.author ,id: book.id}
+      b = { title: book.title, author: book.author, id: book.id }
       json = JSON.generate(b)
       File.write('./json_files/books.json', json, mode: 'a')
       File.write('./json_files/books.json', "\n", mode: 'a')
@@ -201,13 +201,13 @@ class App
       name = data['name']
       age = data['age']
       type = data['type']
-      if(type == 't')
+      if (type == 't')
         specialization = data['specialization']
         @people << Teacher.new(name, age, specialization, id)
       else
         classroom = data['classroom']
         parent_permission = data['parent_permission']
-        @people << Student.new(name, age, classroom,parent_permission, id)
+        @people << Student.new(name, age, classroom, parent_permission, id)
       end
     end
   end
@@ -225,12 +225,12 @@ class App
       person_id = data['person']
       book_id = data['book']
       person = ''
-      @people.each do |item| 
-        item.id == person_id ? person =item : ''
+      @people.each do |item|
+        item.id == person_id ? person = item : ''
       end
       book = ''
-      @books.each do |item| 
-        item.id == book_id ? book =item : ''
+      @books.each do |item|
+        item.id == book_id ? book = item : ''
       end
 
       @rentals << Rental.new(date, person, book)
