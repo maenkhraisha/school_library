@@ -6,10 +6,10 @@ class Person < Nameable
   attr_accessor :name, :age
 
   def initialize(name, age, id = 0)
-    if id.zero?
-      @id = Random.rand(1..1000)
+    @id = if id.zero?
+      Random.rand(1..1000)
     else
-      @id = id
+      id
     end
 
     @name = name
