@@ -1,4 +1,3 @@
-require 'json'
 require './person'
 require './book_class'
 require './rental_class'
