@@ -170,14 +170,16 @@ class App
 
   def load_books_from_files
     return unless File.exist?('./json_files/books.json')
-      file_data = File.read('./json_files/books.json').split
 
-      file_data.each do |item|
-        next unless item[0] == '{'
-          data = JSON.parse(item)
-          title = data['title']
-          author = data['author']
-          @books << Book.new(title, author)
-      end
+    file_data = File.read('./json_files/books.json').split
+
+    file_data.each do |item|
+      next unless item[0] == '{'
+
+      data = JSON.parse(item)
+      title = data['title']
+      author = data['author']
+      @books << Book.new(title, author)
+    end
   end
 end
