@@ -5,17 +5,19 @@ require './student'
 require './teacher'
 require './classroom_class'
 require './capitalize_decorator'
+require './file_operation'
 
 class App
   def initialize
+    extend FileOperation
     puts 'School Library Application'
-    @people = []
-    @books = []
-    @rentals = []
+    @people = load_people_from_files
+    @books = load_books_from_files
+    @rentals = load_rentals_from_files(@people, @books)
   end
 
   def create_book
-    print 'Enter the book name :'
+    print 'Enter the book title :'
     title = gets.chomp
     print 'Enter the author name :'
     author = gets.chomp
@@ -42,7 +44,7 @@ class App
     print 'Enter the teacher specialization :'
     specialization = gets.chomp
 
-    @people << Teacher.new(age, specialization, name)
+    @people << Teacher.new(name, age, specialization)
     puts 'Teacher Created Successfully'
   end
 
@@ -55,9 +57,9 @@ class App
     classroom = gets.chomp
     print 'Do you have parent permission? (yes/no) :'
     parent_permission = gets.chomp
-    parent_permission = parent_permission == 'yes'
+    parent_permission = parent_permission == 'y'
 
-    @people << Student.new(classroom, age, name, parent_permission)
+    @people << Student.new(name, age, classroom, parent_permission)
     puts 'Student Created Successfully'
   end
 
@@ -98,14 +100,20 @@ class App
   end
 
   def list_rental_by_person(id)
-    return 'No person added to the library' unless @rentals.any?
+    return 'No rental exist for this person' unless @rentals.any?
 
     text = ''
     @rentals.each.with_index(1) do |rental, i|
       if rental.person.id.to_i == id.to_i
-        text += "\n#{i}) Date: \"#{rental.date}\" Person: #{rental.person.name}\" Book: #{rental.book.title}"
+        text += "\n#{i}) Date: \"#{rental.date}\" Person: #{rental.person.name} Book: #{rental.book.title}"
       end
     end
     text
+  end
+
+  def save_data
+    save_books(@books)
+    save_people(@people)
+    save_rental(@rentals)
   end
 end

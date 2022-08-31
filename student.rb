@@ -2,10 +2,12 @@ require './person'
 
 # This is the teacher class inherit from person
 class Student < Person
-  attr_reader :classroom
+  attr_accessor :parent_permission
+  attr_reader :classroom, :type
 
-  def initialize(classroom, age, name, parent_permission)
-    super(age, name, parent_permission)
+  def initialize(name, age, classroom, parent_permission, id = 0)
+    super(name, age, id)
+    @type = 's'
     @classroom = classroom
     @parent_permission = parent_permission
   end
@@ -17,5 +19,9 @@ class Student < Person
 
   def play_hooky
     "¯\(ツ)/¯"
+  end
+
+  def can_use_services?
+    @age > 18 || @parent_permission == true
   end
 end
