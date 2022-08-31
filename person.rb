@@ -5,8 +5,13 @@ class Person < Nameable
   attr_reader :id, :rentals
   attr_accessor :name, :age
 
-  def initialize(age, name)
-    @id = Random.rand(1..1000)
+  def initialize(name, age, id = 0)
+    if id == 0
+       @id = Random.rand(1..1000)
+    else
+      @id = id
+    end
+
     @name = name
     @age = age
     @rentals = []

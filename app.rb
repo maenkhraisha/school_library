@@ -14,6 +14,8 @@ class App
     @books = []
     @rentals = []
     load_books_from_files
+    load_people_from_files
+    load_rentals_from_files
   end
 
   def create_book
@@ -100,12 +102,12 @@ class App
   end
 
   def list_rental_by_person(id)
-    return 'No person added to the library' unless @rentals.any?
+    return 'No rental exist for this person' unless @rentals.any?
 
     text = ''
     @rentals.each.with_index(1) do |rental, i|
       if rental.person.id.to_i == id.to_i
-        text += "\n#{i}) Date: \"#{rental.date}\" Person: #{rental.person.name}\" Book: #{rental.book.title}"
+        text += "\n#{i}) Date: \"#{rental.date}\" Person: #{rental.person.name} Book: #{rental.book.title}"
       end
     end
     text
@@ -121,7 +123,7 @@ class App
     File.write('./json_files/books.json', '')
     File.write('./json_files/books.json', "[\n", mode: 'a')
     @books.each_with_index do |book, i|
-      b = { title: book.title, author: book.author }
+      b = { title: book.title, author: book.author ,id: book.id}
       json = JSON.generate(b)
       File.write('./json_files/books.json', json, mode: 'a')
       File.write('./json_files/books.json', "\n", mode: 'a')
@@ -135,13 +137,15 @@ class App
     File.write('./json_files/people.json', "[\n", mode: 'a')
     @people.each_with_index do |person, i|
       b = if person.instance_variable_defined?('@classroom')
-            { id: person.id,
+            { type: person.type,
+              id: person.id,
               age: person.age,
               name: person.name,
               classroom: person.classroom,
               parent_permission: person.parent_permission }
           else
-            { id: person.id,
+            { type: person.type,
+              id: person.id,
               age: person.age,
               name: person.name,
               specialization: person.specialization }
@@ -157,15 +161,15 @@ class App
 
   def save_rental
     File.write('./json_files/rentals.json', '')
-    File.write('./json_files/rentals.json', '[', mode: 'a')
+    File.write('./json_files/rentals.json', "[\n", mode: 'a')
     @rentals.each_with_index do |rental, i|
-      b = { date: rental.date, person: rental.person, book: rental.book }
+      b = { date: rental.date, person: rental.person.id, book: rental.book.id }
       json = JSON.generate(b)
       File.write('./json_files/rentals.json', json, mode: 'a')
       File.write('./json_files/rentals.json', "\n", mode: 'a')
       i == @rentals.length - 1 ? '' : File.write('./json_files/rentals.json', ",\n", mode: 'a')
     end
-    File.write('./json_files/rentals.json', "\n]", mode: 'a')
+    File.write('./json_files/rentals.json', "]", mode: 'a')
   end
 
   def load_books_from_files
@@ -177,9 +181,59 @@ class App
       next unless item[0] == '{'
 
       data = JSON.parse(item)
+      id = data['id']
       title = data['title']
       author = data['author']
-      @books << Book.new(title, author)
+      @books << Book.new(title, author, id)
+    end
+  end
+
+  def load_people_from_files
+    return unless File.exist?('./json_files/people.json')
+
+    file_data = File.read('./json_files/people.json').split
+
+    file_data.each do |item|
+      next unless item[0] == '{'
+
+      data = JSON.parse(item)
+      id = data['id']
+      name = data['name']
+      age = data['age']
+      type = data['type']
+      if(type == 't')
+        specialization = data['specialization']
+        @people << Teacher.new(name, age, specialization, id)
+      else
+        classroom = data['classroom']
+        parent_permission = data['parent_permission']
+        @people << Student.new(name, age, classroom,parent_permission, id)
+      end
+    end
+  end
+
+  def load_rentals_from_files
+    return unless File.exist?('./json_files/rentals.json')
+
+    file_data = File.read('./json_files/rentals.json').split
+
+    file_data.each do |item|
+      next unless item[0] == '{'
+
+      data = JSON.parse(item)
+      date = data['date']
+      person_id = data['person']
+      book_id = data['book']
+      person = ''
+      @people.each do |item| 
+        item.id == person_id ? person =item : ''
+      end
+      book = ''
+      @books.each do |item| 
+        item.id == book_id ? book =item : ''
+      end
+
+      @rentals << Rental.new(date, person, book)
     end
   end
 end

@@ -3,10 +3,11 @@ require './person'
 # This is the teacher class inherit from person
 class Student < Person
   attr_accessor :parent_permission
-  attr_reader :classroom
+  attr_reader :classroom, :type
 
-  def initialize(name, age, classroom, parent_permission)
-    super(name, age)
+  def initialize(name, age, classroom, parent_permission, id = 0)
+    super(name, age, id)
+    @type = 's'
     @classroom = classroom
     @parent_permission = parent_permission
   end
