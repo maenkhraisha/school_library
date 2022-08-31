@@ -6,14 +6,14 @@ require './teacher'
 require './classroom_class'
 require './capitalize_decorator'
 require './file_operation'
-include FileOperation
-
+# rubocop:disable Metrics/ModuleLength
 class App
+  extend FileOperation
   def initialize
     puts 'School Library Application'
-    @people = FileOperation.load_people_from_files
-    @books = FileOperation.load_books_from_files
-    @rentals = FileOperation.load_rentals_from_files(@people, @books)
+    @people = load_people_from_files
+    @books = load_books_from_files
+    @rentals = load_rentals_from_files(@people, @books)
   end
 
   def create_book
@@ -117,3 +117,4 @@ class App
     FileOperation.save_rental(@rentals)
   end
 end
+# rubocop:enable Metrics/ModuleLength

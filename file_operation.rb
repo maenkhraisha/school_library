@@ -1,5 +1,5 @@
 require 'json'
-# rubocop:disable ClassLength
+
 module FileOperation
   def save_books(books)
     File.write('./json_files/books.json', '')
@@ -130,4 +130,3 @@ module FileOperation
     result
   end
 end
-# rubocop:enable ClassLength
