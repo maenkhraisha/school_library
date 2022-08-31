@@ -221,8 +221,8 @@ class App
       next unless item[0] == '{'
 
       data = JSON.parse(item)
-      date = data['date']      
-      person = get_person_by_id(data['person'])      
+      date = data['date']
+      person = get_person_by_id(data['person'])
       book = get_book_by_id(data['book'])
 
       @rentals << Rental.new(date, person, book)
