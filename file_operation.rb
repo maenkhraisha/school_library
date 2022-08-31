@@ -57,8 +57,10 @@ module FileOperation
     books = []
     return unless File.exist?('./json_files/books.json')
     file_data = File.read('./json_files/books.json').split
+
     file_data.each do |item|
       next unless item[0] == '{'
+
       data = JSON.parse(item)
       id = data['id']
       title = data['title']
@@ -72,8 +74,10 @@ module FileOperation
     people = []
     return unless File.exist?('./json_files/people.json')
     file_data = File.read('./json_files/people.json').split
+
     file_data.each do |item|
       next unless item[0] == '{'
+
       data = JSON.parse(item)
       id = data['id']
       name = data['name']
@@ -94,9 +98,11 @@ module FileOperation
   def load_rentals_from_files(people, books)
     rentals = []
     return unless File.exist?('./json_files/rentals.json')
+
     file_data = File.read('./json_files/rentals.json').split
     file_data.each do |item|
       next unless item[0] == '{'
+      
       data = JSON.parse(item)
       date = data['date']
       person = get_person_by_id(data['person'], people)
