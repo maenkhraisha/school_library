@@ -1,9 +1,3 @@
 [
-{"type":"t","id":92,"age":"42","name":"maen","specialization":"ccomp"}
-,
-{"type":"s","id":184,"age":"55","name":"kkkk","classroom":"s","parent_permission":false}
-,
-{"type":"t","id":579,"age":"19","name":"kamal","specialization":"art"}
-,
-{"type":"s","id":365,"age":"88","name":"ooooooo\t","classroom":"d","parent_permission":false}
+{"type":"t","id":180,"age":"31","name":"mane","specialization":"comp"}
 ]
