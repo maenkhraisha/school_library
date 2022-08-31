@@ -13,6 +13,7 @@ class App
     @people = []
     @books = []
     @rentals = []
+    load_books_from_files
   end
 
   def create_book
@@ -124,9 +125,9 @@ class App
       json = JSON.generate(b)
       File.write('./json_files/books.json', json, mode: 'a')
       File.write('./json_files/books.json', "\n", mode: 'a')
-      i == @people.length - 1 ? '' : File.write('./json_files/books.json', ",\n", mode: 'a')
+      i == @books.length - 1 ? '' : File.write('./json_files/books.json', ",\n", mode: 'a')
     end
-    File.write('./json_files/books.json', "\n", mode: 'a')
+    File.write('./json_files/books.json', "]\n", mode: 'a')
   end
 
   def save_people
@@ -162,8 +163,23 @@ class App
       json = JSON.generate(b)
       File.write('./json_files/rentals.json', json, mode: 'a')
       File.write('./json_files/rentals.json', "\n", mode: 'a')
-      i == @people.length - 1 ? '' : File.write('./json_files/rentals.json', ",\n", mode: 'a')
+      i == @rentals.length - 1 ? '' : File.write('./json_files/rentals.json', ",\n", mode: 'a')
     end
     File.write('./json_files/rentals.json', "\n]", mode: 'a')
+  end
+
+  def load_books_from_files
+    if File.exists?('./json_files/books.json')
+      file_data = File.read('./json_files/books.json').split
+
+      file_data.each do |item|
+        if item[0] == '{'
+          data = JSON.parse(item)
+          title = data['title']
+          author = data['author']
+          @books << Book.new(title, author)
+        end
+      end
+    end
   end
 end
