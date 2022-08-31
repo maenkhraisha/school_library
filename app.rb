@@ -6,7 +6,7 @@ require './teacher'
 require './classroom_class'
 require './capitalize_decorator'
 require './file_operation'
-# rubocop:disable Metrics/ModuleLength
+
 class App
   extend FileOperation
   def initialize
@@ -117,4 +117,3 @@ class App
     FileOperation.save_rental(@rentals)
   end
 end
-# rubocop:enable Metrics/ModuleLength
