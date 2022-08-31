@@ -169,7 +169,7 @@ class App
       File.write('./json_files/rentals.json', "\n", mode: 'a')
       i == @rentals.length - 1 ? '' : File.write('./json_files/rentals.json', ",\n", mode: 'a')
     end
-    File.write('./json_files/rentals.json', "]", mode: 'a')
+    File.write('./json_files/rentals.json', ']', mode: 'a')
   end
 
   def load_books_from_files
@@ -201,7 +201,7 @@ class App
       name = data['name']
       age = data['age']
       type = data['type']
-      if (type == 't')
+      if type == 't'
         specialization = data['specialization']
         @people << Teacher.new(name, age, specialization, id)
       else

@@ -5,10 +5,10 @@ class Book
 
   def initialize(title, author, id = 0)
     @id = if id.zero?
-       Random.rand(1..1000)
-    else
-      id
-    end
+            Random.rand(1..1000)
+          else
+            id
+          end
     @title = title
     @author = author
     @rentals = []

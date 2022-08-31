@@ -7,10 +7,10 @@ class Person < Nameable
 
   def initialize(name, age, id = 0)
     @id = if id.zero?
-      Random.rand(1..1000)
-    else
-      id
-    end
+            Random.rand(1..1000)
+          else
+            id
+          end
 
     @name = name
     @age = age
