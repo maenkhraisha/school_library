@@ -5,15 +5,15 @@ require './student'
 require './teacher'
 require './classroom_class'
 require './capitalize_decorator'
-require './file_io'
-include fileOperation
+require './file_operation'
+include FileOperation
 
 class App
   def initialize
     puts 'School Library Application'
-    @people = fileOperation.load_people_from_files
-    @books = fileOperation.load_books_from_files
-    @rentals = fileOperation.load_rentals_from_files(@people, @books)
+    @people = FileOperation.load_people_from_files
+    @books = FileOperation.load_books_from_files
+    @rentals = FileOperation.load_rentals_from_files(@people, @books)
   end
 
   def create_book
@@ -112,8 +112,8 @@ class App
   end
 
   def save_data
-    fileOperation.save_books(@books)
-    fileOperation.save_people(@people)
-    fileOperation.save_rental(@rentals)
+    FileOperation.save_books(@books)
+    FileOperation.save_people(@people)
+    FileOperation.save_rental(@rentals)
   end
 end

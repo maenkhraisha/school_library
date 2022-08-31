@@ -1,6 +1,6 @@
 require 'json'
 
-module fileOperation
+module FileOperation
   def save_books(books)
     File.write('./json_files/books.json', '')
     File.write('./json_files/books.json', "[\n", mode: 'a')
