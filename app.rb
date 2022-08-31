@@ -7,14 +7,14 @@ require './teacher'
 require './classroom_class'
 require './capitalize_decorator'
 require './file_io'
-include File_io
+include File_IO
 
 class App
-  def initialize
+  def initialize    
     puts 'School Library Application'
-    @people = File_io.load_people_from_files
-    @books = File_io.load_books_from_files
-    @rentals = File_io.load_rentals_from_files(@people, @books)
+    @people = File_IO.load_people_from_files
+    @books = File_IO.load_books_from_files
+    @rentals = File_IO.load_rentals_from_files(@people, @books)
   end
 
   def create_book
@@ -113,8 +113,8 @@ class App
   end
 
   def save_data
-    File_io.save_books(@books)
-    File_io.save_people(@people)
-    File_io.save_rental(@rentals)
+    File_IO.save_books(@books)
+    File_IO.save_people(@people)
+    File_IO.save_rental(@rentals)
   end
 end
