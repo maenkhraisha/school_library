@@ -225,15 +225,27 @@ class App
       person_id = data['person']
       book_id = data['book']
       person = ''
-      @people.each do |item|
-        item.id == person_id ? person = item : ''
-      end
+      person = get_person_by_id(person_id)
       book = ''
-      @books.each do |item|
-        item.id == book_id ? book = item : ''
-      end
+      book = get_book_by_id(book_id)
 
       @rentals << Rental.new(date, person, book)
     end
+  end
+
+  def get_book_by_id(id)
+    result = ''
+    @books.each do |item|
+      item.id == id ? result = item : ''
+    end
+    result
+  end
+
+  def get_person_by_id(id)
+    result = ''
+    @people.each do |item|
+      item.id == id ? result = item : ''
+    end
+    result
   end
 end
