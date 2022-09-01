@@ -104,9 +104,7 @@ class App
 
     text = ''
     @rentals.each.with_index(1) do |rental, i|
-      if rental.person.id.to_i == id.to_i
-        text += "\n#{i}) Date: \"#{rental.date}\" Person: #{rental.person.name} Book: #{rental.book.title}"
-      end
+      text += "\n#{i}) Date: \"#{rental.date}\" Person: #{rental.person.name} Book: #{rental.book.title}" if rental.person.id.to_i == id.to_i
     end
     text
   end
