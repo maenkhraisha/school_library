@@ -1,8 +1,6 @@
 require './app'
 require './options'
 
-# rubocop:disable Metrics/CyclomaticComplexity
-
 def main
   user_input = nil
   app = App.new
@@ -43,5 +41,4 @@ def main
     end
   end
 end
-# rubocop:enable Metrics/CyclomaticComplexity
 main
