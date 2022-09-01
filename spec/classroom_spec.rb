@@ -1,10 +1,10 @@
-require '../classroom_class.rb'
+require './classroom_class'
 
 describe Classroom do 
-    context "give no parameter" do
-        it "did not return object" do
-            classroon = Classroom.new
-            expect(classroom).to eql nil
+    context "giveen parameter" do
+        it "should have name" do
+            class_one = Classroom.new("class A")
+            expect(class_one.label).to eql "class A"
         end
     end
 end
