@@ -10,7 +10,7 @@ AllCops:
 Layout/LineLength:
   Max: 200
 Metrics/MethodLength:
-  Max: 100
+  Max: 50
 Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
@@ -19,7 +19,9 @@ Metrics/BlockLength:
   IgnoredMethods: ['describe']
   Max: 30
 Metrics/CyclomaticComplexity:
-  Enable: false
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: No
 
 
 Style/Documentation:
@@ -42,8 +44,6 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
-Layout/EndOfLine:
-   Enabled: False
 Lint/RaiseException:
   Enabled: false
 Lint/StructNewOverride:
